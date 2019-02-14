@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.myask.mapper.UserMapper">
+
+	<insert id="insertUser">
+		INSERT INTO USER VALUES(
+			#{userVO.id},
+			#{userVO.password},
+			#{userVO.name}
+		);
+	</insert>
+	
+	<select id="selectUser" resultType="com.myask.domain.UserVO">
+		SELECT * FROM USER
+		WHERE ID = #{userVO.id} AND PASSWORD = #{userVO.password}
+	</select>
+	
+	<select id="selectUserUsingId" resultType="com.myask.domain.UserVO">
+		SELECT * FROM USER
+		WHERE ID = #{id}
+	</select>
+	
+	<select id="newAskCount" resultType="int">
+		SELECT COUNT(*) FROM ASK
+		WHERE PARENT_ID = #{id} 
+		AND REPLY IS NULL
+	</select>
+	
+	<update id="updateUser">
+		UPDATE USER SET
+		PASSWORD = #{userVO.password}
+	</update>
+	
+	<delete id="deleteUser">
+		DELETE FROM USER
+		WHERE ID = #{id}
+	</delete>
+ 
+</mapper>
