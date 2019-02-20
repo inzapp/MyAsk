@@ -13,7 +13,7 @@ public interface UserMapper {
 	
 	public int newAskCount(@Param("id") String id) throws Exception;
 	
-	public void updateUser(@Param("userVO") UserVO requestVO) throws Exception;
+	public void update(@Param("userVO") UserVO requestVO) throws Exception;
 	
 	public void deleteUser(@Param("id") String id) throws Exception;
 }

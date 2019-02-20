@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myask.domain.UserVO;
 import com.myask.mapper.UserMapper;
+import com.myask.service.UserServiceImpl;
 import com.myask.util.Attr;
 import com.myask.util.Jsp;
 import com.myask.util.UserUtil;
@@ -23,24 +24,30 @@ public class LoginController {
 	@Autowired
 	private UserMapper userMapper;
 	
+	@Autowired
+	private UserServiceImpl userService;
+	
+	@Autowired
+	private UserUtil userUtil;
+	
 	// 로그인 페이지
 	@GetMapping()
-	public ModelAndView loginPage() throws Exception {
-		return new ModelAndView(Jsp.LOGIN);
+	public String loginPage() throws Exception {
+		return Jsp.LOGIN;
 	}
 	
 	// 로그인 페이지 로그인 요청
 	@PostMapping()
 	public String login(@ModelAttribute UserVO formRequest, 
 			HttpSession session) throws Exception {
-		if(session.getAttribute(Attr.LOGIN) != null) {
+		
+		if(session.getAttribute(Attr.LOGIN) != null) 
 			session.removeAttribute(Attr.LOGIN);
-		}
 		
 		String id = formRequest.getId();
 		String pw = formRequest.getPassword();
 		
-		String encryptedPw = UserUtil.getInstance().encrypt(id, pw);
+		String encryptedPw = userUtil.encrypt(id, pw);
 		formRequest.setPassword(encryptedPw);
 		
 		UserVO loginReqVO = userMapper.selectUser(formRequest);

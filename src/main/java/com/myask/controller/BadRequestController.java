@@ -12,7 +12,7 @@ import com.myask.util.Jsp;
 public class BadRequestController {
 	
 	@GetMapping()
-	public ModelAndView badRequest() throws Exception {
-		return new ModelAndView(Jsp.BAD_ACCESS);
+	public String badRequest() throws Exception {
+		return Jsp.BAD_ACCESS;
 	}
 }

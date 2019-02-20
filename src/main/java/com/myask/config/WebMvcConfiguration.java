@@ -9,7 +9,7 @@ import com.myask.interceptor.LoginInterceptor;
 
 @Configuration
 @ComponentScan("com.myask.interceptor")
-public class WebMvcConfigure implements WebMvcConfigurer{
+public class WebMvcConfiguration implements WebMvcConfigurer{
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {

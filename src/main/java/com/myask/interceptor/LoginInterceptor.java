@@ -1,5 +1,7 @@
 package com.myask.interceptor;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -20,7 +22,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		UserVO loginVO = (UserVO) session.getAttribute(Attr.LOGIN);
 		if(loginVO == null) {
-			response.sendRedirect("/login");
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter pw = response.getWriter();
+			pw.write("<script>alert('로그인이 필요합니다!'); location.href='/login'</script>");
+			pw.flush();
 			return false;
 		}
 		
