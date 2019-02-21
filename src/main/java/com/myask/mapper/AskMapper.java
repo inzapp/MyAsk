@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.myask.domain.AskVO;
 
 public interface AskMapper {
+	
 	public void insertAsk(@Param("askVO") AskVO requestVO) throws Exception;
 	
 	public List<AskVO> listNewAsk(@Param("parent_id") String parent_id) throws Exception;
@@ -18,4 +19,6 @@ public interface AskMapper {
 	public void updateAsk(@Param("askVO") AskVO requestVO) throws Exception;
 	
 	public void deleteAsk(@Param("ask_code") long ask_code) throws Exception;
+	
+	public int selectNewAskCount(@Param("id") String id) throws Exception;;
 }

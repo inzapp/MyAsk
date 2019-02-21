@@ -24,9 +24,6 @@ import com.myask.util.UserUtil;
 public class LoginController {
 	
 	@Autowired
-	private UserMapper userMapper;
-	
-	@Autowired
 	private UserServiceImpl userService;
 	
 	@Autowired
@@ -46,7 +43,6 @@ public class LoginController {
 		String id = loginDTO.getId();
 		String password = userUtil.encrypt(id, loginDTO.getPassword());
 		
-		boolean loginSuccess = userService.login(id, password, session, response);
-		return loginSuccess ? "redirect:/mypage/" + id : null;
+		return userService.login(id, password, session, response);
 	}
 }

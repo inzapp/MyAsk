@@ -21,12 +21,6 @@
 		WHERE ID = #{id}
 	</select>
 	
-	<select id="newAskCount" resultType="int">
-		SELECT COUNT(*) FROM ASK
-		WHERE PARENT_ID = #{id} 
-		AND REPLY IS NULL
-	</select>
-	
 	<update id="updateUser">
 		UPDATE USER SET
 		PASSWORD = #{userVO.password}

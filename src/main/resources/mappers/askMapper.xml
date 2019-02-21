@@ -34,6 +34,12 @@
 		AND ASK_CODE = #{ask_code} 
 	</select>
 	
+	<select id="selectNewAskCount" resultType="int">
+		SELECT COUNT(*) FROM ASK
+		WHERE PARENT_ID = #{id} 
+		AND REPLY IS NULL
+	</select>
+	
 	<update id="updateAsk">
 		UPDATE ASK SET
 		REPLY = #{askVO.reply},
@@ -45,5 +51,7 @@
 		DELETE FROM ASK
 		WHERE ASK_CODE = #{ask_code}
 	</delete>
+	
+	
  
 </mapper>
