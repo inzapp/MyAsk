@@ -1,5 +1,8 @@
 package com.myask.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +43,7 @@ public class SignUpController {
 	// 회원가입 페이지 회원가입 요청
 	@PostMapping()
 	public String signup(@ModelAttribute AccountCheckDTO formRequest, 
-			HttpSession session) throws Exception {
+			HttpSession session, HttpServletResponse response) throws Exception {
 		String id = formRequest.getId();
 		String pw = formRequest.getPassword();
 		String pw2 = formRequest.getPassword2();
@@ -54,7 +57,7 @@ public class SignUpController {
 
 		// 아이디 비밀번호 글자수와 문자 조합 체크
 //		if(!UserUtil.getInstance().isAccountCondition(id, pw, name)) {
-		if(userUtil.isAccountCondition(id, pw, name)) {
+		if(!userUtil.isAccountCondition(id, pw, name)) {
 			pRes.setThreadAttr(session, Attr.BAD_ACCOUNT);
 			return "redirect:/signup";
 		}
@@ -80,7 +83,10 @@ public class SignUpController {
 		
 		userMapper.insertUser(signupUserVO);
 		
-		pRes.setThreadAttr(session, Attr.SIGNUP_SUCCESS);
-		return "redirect:/login";
+//		pRes.setThreadAttr(session, Attr.SIGNUP_SUCCESS);
+		response.setContentType("text/html; charset=UTF-8;");
+		PrintWriter pWriter = response.getWriter();
+		pWriter.println("<script>alert('회원가입에 성공하였습니다.'); location.href='/login'</script>");
+		return null;
 	}
 }

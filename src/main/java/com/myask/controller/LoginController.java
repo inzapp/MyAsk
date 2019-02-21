@@ -9,13 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.myask.domain.LoginDTO;
-import com.myask.domain.UserVO;
-import com.myask.mapper.UserMapper;
 import com.myask.service.UserServiceImpl;
-import com.myask.util.Attr;
 import com.myask.util.Jsp;
 import com.myask.util.UserUtil;
 
