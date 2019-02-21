@@ -65,18 +65,6 @@
 				<div style="text-align: center; margin-top: 10px">
 					<input type="password" name="password" class="roundInput" size=20 placeholder="비밀번호">
 				</div>
-				<c:set scope="session" var="badAccount" value="${sessionScope.badAccount}"/>
-				<c:if test="${ badAccount ne null }">
-					<div class="error" style="margin-top: 10px">
-						아이디 혹은 비밀번호가 잘못되었습니다.
-					</div>
-				</c:if>
-				<c:set scope="session" var="signup_success" value="${ sessionScope.signup_success }"/>
-				<c:if test="${ signup_success ne null }">
-					<div class="success" style="margin-top: 10px">
-						회원가입에 성공하였습니다!
-					</div>
-				</c:if>
 				<div style="margin-top:10px">
 					<input type="submit" value="로그인" class="invisibleButton">
 				</div>

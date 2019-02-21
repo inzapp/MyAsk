@@ -82,8 +82,7 @@ public class SignUpController {
 		signupUserVO.setName(formRequest.getName());
 		
 		userMapper.insertUser(signupUserVO);
-		
-//		pRes.setThreadAttr(session, Attr.SIGNUP_SUCCESS);
+	
 		response.setContentType("text/html; charset=UTF-8;");
 		PrintWriter pWriter = response.getWriter();
 		pWriter.println("<script>alert('회원가입에 성공하였습니다.'); location.href='/login'</script>");
