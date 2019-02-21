@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.myask.domain.AccountCheckVO;
+import com.myask.domain.AccountCheckDTO;
 import com.myask.domain.UserVO;
 import com.myask.mapper.UserMapper;
 import com.myask.service.UserServiceImpl;
@@ -39,7 +39,7 @@ public class SignUpController {
 	
 	// 회원가입 페이지 회원가입 요청
 	@PostMapping()
-	public String signup(@ModelAttribute AccountCheckVO formRequest, 
+	public String signup(@ModelAttribute AccountCheckDTO formRequest, 
 			HttpSession session) throws Exception {
 		String id = formRequest.getId();
 		String pw = formRequest.getPassword();

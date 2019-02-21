@@ -1,5 +1,6 @@
 package com.myask.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myask.domain.LoginDTO;
 import com.myask.domain.UserVO;
 import com.myask.mapper.UserMapper;
 import com.myask.service.UserServiceImpl;
@@ -38,35 +40,13 @@ public class LoginController {
 	
 	// 로그인 페이지 로그인 요청
 	@PostMapping()
-	public String login(@ModelAttribute UserVO formRequest, 
-			HttpSession session) throws Exception {
+	public String login(@ModelAttribute LoginDTO loginDTO, 
+			HttpSession session, HttpServletResponse response) throws Exception {
 		
-		if(session.getAttribute(Attr.LOGIN) != null) 
-			session.removeAttribute(Attr.LOGIN);
+		String id = loginDTO.getId();
+		String password = userUtil.encrypt(id, loginDTO.getPassword());
 		
-		String id = formRequest.getId();
-		String pw = formRequest.getPassword();
-		
-		String encryptedPw = userUtil.encrypt(id, pw);
-		formRequest.setPassword(encryptedPw);
-		
-		UserVO loginReqVO = userMapper.selectUser(formRequest);
-		boolean loginFailure = loginReqVO == null ? true : false;
-		
-		if(loginFailure) {
-			session.setAttribute(Attr.BAD_ACCOUNT, true);
-			new Thread(() -> {
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				session.removeAttribute(Attr.BAD_ACCOUNT);
-			}).start();
-			return "redirect:/login";
-		}
-		
-		session.setAttribute(Attr.LOGIN, loginReqVO);
-		return "redirect:/mypage/" + id;
+		boolean loginSuccess = userService.login(id, password, session, response);
+		return loginSuccess ? "redirect:/mypage/" + id : null;
 	}
 }

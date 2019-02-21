@@ -13,7 +13,7 @@
 	
 	<select id="selectUser" resultType="com.myask.domain.UserVO">
 		SELECT * FROM USER
-		WHERE ID = #{userVO.id} AND PASSWORD = #{userVO.password}
+		WHERE ID = #{id} AND PASSWORD = #{pw}
 	</select>
 	
 	<select id="selectUserUsingId" resultType="com.myask.domain.UserVO">
