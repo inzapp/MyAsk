@@ -51,4 +51,9 @@ public class UserServiceImpl implements UserService {
 		return "redirect:/mypage/" + id;
 	}
 
+	@Override
+	public UserVO selectUserUsingId(String id) throws Exception {
+		return userMapper.selectUserUsingId(id);
+	}
+
 }

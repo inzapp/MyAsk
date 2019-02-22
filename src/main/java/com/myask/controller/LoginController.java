@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.myask.domain.LoginDTO;
-import com.myask.service.UserServiceImpl;
+import com.myask.service.UserService;
 import com.myask.util.Jsp;
 import com.myask.util.UserUtil;
 
@@ -20,7 +20,7 @@ import com.myask.util.UserUtil;
 public class LoginController {
 	
 	@Autowired
-	private UserServiceImpl userService;
+	private UserService userService;
 	
 	@Autowired
 	private UserUtil userUtil;

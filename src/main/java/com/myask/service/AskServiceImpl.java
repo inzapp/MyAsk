@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myask.domain.AskVO;
+import com.myask.domain.UserVO;
 import com.myask.mapper.AskMapper;
 import com.myask.util.Attr;
 
@@ -79,5 +80,29 @@ public class AskServiceImpl implements AskService {
 		}).start();
 		
 		return "redirect:/ask/" + id;
+	}
+
+	@Override
+	public AskVO selectAsk(String parent_id, long ask_code) throws Exception {
+		return askMapper.selectAsk(parent_id, ask_code);
+	}
+
+	@Override
+	public String reply(UserVO loginVO, AskVO formRequest, String loginId, String pathId, long pathAskCode, HttpServletResponse response)
+			throws Exception {
+
+		// 로그인 아이디와 URL 아이디가 다른 경우 비정상접근 처리 : 비정상요청
+		if (!loginId.equals(pathId)) 
+			return "redirect:/bad_request";
+
+		// 답변을 썼지만 이미 답변이 등록된 경우 저장하지 않고 리턴 : 비정상적인 방법
+		AskVO askVO = askMapper.selectAsk(pathId, pathAskCode);
+		if (askVO.getReply() != null) 
+			return "redirect:/bad_request";
+
+		// 답변이 비어있다면 답변 넣고 저장
+		askVO.setReply(formRequest.getReply());
+		askMapper.updateAsk(askVO);
+		return "redirect:/mypage/" + pathId;
 	}
 }

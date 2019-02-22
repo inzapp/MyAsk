@@ -11,7 +11,6 @@ public interface UserMapper {
 	public UserVO selectUser(@Param("id") String id, @Param("pw") String pw) throws Exception;
 	
 	public UserVO selectUserUsingId(@Param("id") String id) throws Exception;
-
 	
 	public void update(@Param("userVO") UserVO requestVO) throws Exception;
 	

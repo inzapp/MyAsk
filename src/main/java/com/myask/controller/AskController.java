@@ -19,8 +19,8 @@ import com.myask.domain.AskVO;
 import com.myask.domain.UserVO;
 import com.myask.mapper.AskMapper;
 import com.myask.mapper.UserMapper;
-import com.myask.service.AskServiceImpl;
-import com.myask.service.UserServiceImpl;
+import com.myask.service.AskService;
+import com.myask.service.UserService;
 import com.myask.util.Jsp;
 
 @Controller
@@ -28,16 +28,10 @@ import com.myask.util.Jsp;
 public class AskController {
 
 	@Autowired
-	private UserMapper userMapper;
+	private UserService userService;
 
 	@Autowired
-	private AskMapper askMapper;
-
-	@Autowired
-	private UserServiceImpl userService;
-
-	@Autowired
-	private AskServiceImpl askService;
+	private AskService askService;
 
 	// 질문 페이지
 	@GetMapping("/{id}")
@@ -45,11 +39,11 @@ public class AskController {
 		if (userService.isNotExistUser(id))
 			return Jsp.BAD_ACCESS;
 
-		UserVO userVO = userMapper.selectUserUsingId(id);
+		UserVO userVO = userService.selectUserUsingId(id);
 		if (userVO == null)
 			return Jsp.BAD_ACCESS;
 
-		List<AskVO> completedAskVOList = askMapper.listCompletedAsk(id);
+		List<AskVO> completedAskVOList = askService.listCompletedAsk(id);
 		model.addAttribute("userVO", userVO);
 		model.addAttribute("completedAskVOList", completedAskVOList);
 		return Jsp.ASK;
@@ -65,7 +59,6 @@ public class AskController {
 			return "redirect:/bad_request";
 
 		String ask = askDTO.getAsk();
-
 		AskVO askVO = new AskVO();
 		askVO.setParent_id(id);
 		askVO.setAsk(ask);

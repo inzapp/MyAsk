@@ -56,7 +56,6 @@ public class SignUpController {
 		}
 
 		// 아이디 비밀번호 글자수와 문자 조합 체크
-//		if(!UserUtil.getInstance().isAccountCondition(id, pw, name)) {
 		if(!userUtil.isAccountCondition(id, pw, name)) {
 			pRes.setThreadAttr(session, Attr.BAD_ACCOUNT);
 			return "redirect:/signup";
@@ -86,6 +85,8 @@ public class SignUpController {
 		response.setContentType("text/html; charset=UTF-8;");
 		PrintWriter pWriter = response.getWriter();
 		pWriter.println("<script>alert('회원가입에 성공하였습니다.'); location.href='/login'</script>");
+		pWriter.flush();
+		
 		return null;
 	}
 }

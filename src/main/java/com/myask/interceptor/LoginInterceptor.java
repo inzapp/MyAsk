@@ -23,7 +23,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		UserVO loginVO = (UserVO) session.getAttribute(Attr.LOGIN);
 		if(loginVO == null) {
 			response.setContentType("text/html; charset=UTF-8");
-			
 			PrintWriter pw = response.getWriter();
 			pw.write("<script>alert('로그인이 필요합니다!'); location.href='/login'</script>");
 			pw.flush();
