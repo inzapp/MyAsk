@@ -11,7 +11,7 @@ import com.myask.util.Jsp;
 public class BadRequestController {
 	
 	@GetMapping()
-	public String badRequest() throws Exception {
+	public String badRequestPage() throws Exception {
 		return Jsp.BAD_ACCESS;
 	}
 }

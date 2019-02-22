@@ -1,4 +1,4 @@
-package com.myask.util;
+package com.myask.service;
 
 import java.security.MessageDigest;
 
@@ -6,7 +6,8 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserUtil {
+public class AccountUtil {
+	
 	private final int MIN_ID_LENGTH = 4;
 	private final int MAX_ID_LENGTH = 13;
 	private final int MIN_PW_LENGTH = 6;
@@ -14,14 +15,14 @@ public class UserUtil {
 	private final int MIN_NAME_LENGTH = 1;
 	private final int MAX_NAME_LENGTH = 10;
 
-	public UserUtil() {
+	public AccountUtil() {
 	}
 
 	private static class Singleton {
-		private static final UserUtil INSTANCE = new UserUtil();
+		private static final AccountUtil INSTANCE = new AccountUtil(); 
 	}
 
-	public static UserUtil getInstance() {
+	public static AccountUtil getInstance() {
 		return Singleton.INSTANCE;
 	}
 

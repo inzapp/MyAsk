@@ -11,34 +11,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.myask.domain.LoginDTO;
-import com.myask.service.UserService;
-import com.myask.util.Jsp;
-import com.myask.util.UserUtil;
+import com.myask.service.LoginService;
 
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
+
 	@Autowired
-	private UserService userService;
-	
-	@Autowired
-	private UserUtil userUtil;
-	
+	private LoginService loginService;
+
 	// 로그인 페이지
 	@GetMapping()
 	public String loginPage() throws Exception {
-		return Jsp.LOGIN;
+		return loginService.loginPage();
 	}
-	
+
 	// 로그인 페이지 로그인 요청
 	@PostMapping()
-	public String login(@ModelAttribute LoginDTO loginDTO, 
-			HttpSession session, HttpServletResponse response) throws Exception {
-		
-		String id = loginDTO.getId();
-		String password = userUtil.encrypt(id, loginDTO.getPassword());
-		
-		return userService.login(id, password, session, response);
+	public String login(@ModelAttribute LoginDTO loginDTO, HttpSession session, 
+			HttpServletResponse response) throws Exception {
+
+		return loginService.login(loginDTO, session, response);
 	}
 }

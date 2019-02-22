@@ -8,34 +8,44 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myask.domain.LoginDTO;
 import com.myask.domain.UserVO;
 import com.myask.mapper.UserMapper;
 import com.myask.util.Attr;
+import com.myask.util.Jsp;
 
 @Service
-public class UserServiceImpl implements UserService {
-
+public class LoginServiceImpl implements LoginService {
+	
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Autowired
+	private AccountUtil userUtil;
 
+	// 로그인 페이지
 	@Override
-	public boolean isNotExistUser(String id) throws Exception {
-		return userMapper.selectUserUsingId(id) == null;
+	public String loginPage() throws Exception {
+		return Jsp.LOGIN;
 	}
 
+	// 로그인 요청
 	@Override
-	public String login(String id, String password, HttpSession session, HttpServletResponse response)
-			throws Exception {
+	public String login(LoginDTO loginDTO, HttpSession session, HttpServletResponse response) throws Exception {
 
+		String id = loginDTO.getId();
+		String password = userUtil.encrypt(id, loginDTO.getPassword());
 		UserVO loginVO = userMapper.selectUser(id, password);
-		boolean loginSuccess = loginVO != null;
-
-		if (!loginSuccess) {
+		
+		boolean loginFailure = loginVO == null;
+		if (loginFailure) {
 			response.setContentType("text/html; charset=UTF-8;");
 			PrintWriter pw = response.getWriter();
 
-			UserVO testVO = userMapper.selectUserUsingId(id);
-			if (testVO == null)
+			UserVO idExistTestVO = userMapper.selectUserUsingId(id);
+			
+			boolean idNotExist = idExistTestVO == null;
+			if (idNotExist)
 				pw.println("<script>alert('존재하지 않는 아이디 입니다.'); location.href='/login'</script>");
 			else
 				pw.println("<script>alert('비밀번호가 틀렸습니다.'); location.href='/login'</script>");
@@ -49,11 +59,6 @@ public class UserServiceImpl implements UserService {
 
 		session.setAttribute(Attr.LOGIN, loginVO);
 		return "redirect:/mypage/" + id;
-	}
-
-	@Override
-	public UserVO selectUserUsingId(String id) throws Exception {
-		return userMapper.selectUserUsingId(id);
 	}
 
 }
