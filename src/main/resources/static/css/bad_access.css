@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.homeButton {
+	border: none;
+	color: snow;
+	background-color: rgb(60, 60, 60);
+	font-size: 150%;
+}

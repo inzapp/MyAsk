@@ -7,19 +7,10 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/bad_access.css">
 <title>MyAsk::잘못된 접근</title>
-<style>
-	.homeButton {
-		border: none;
-		color: snow;
-		background-color: rgb(60, 60, 60);
-		font-size: 150%;
-	}
-</style>
 </head>
 <body style="background-color:rgb(60, 60, 60)">
 	<div id="content" style="margin-top: 50px; text-align: center">

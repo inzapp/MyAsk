@@ -7,52 +7,10 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/login.css">
 <title>MyAsk</title>
-<style>
-	.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-	}
-
-	.roundInput {
-		border: none;
-		border-radius: 10px;
-		text-align: center;
-		font-size: 110%;
-		padding: 7px;
-		background-color: white;
-	}
-	
-	.error {
-		color: red;
-		font-size: 110%;
-		font-weight: bold;
-	}
-	
-	.success {
-		color: greenyellow;
-		font-size: 110%;
-		font-weight: bold;
-	}
-	
-	.invisibleButton {
-		padding: 10px;
-		width: 100px;
-		font-size: 110%;
-		color: snow;
-		border-radius: 10px; 
-		border:none; 
-		background-color: rgb(60, 60, 60);
-	}
-</style>
 </head>
 <body style="background-color:rgb(60, 60, 60)">
 	<div class="center" style="text-align: center">

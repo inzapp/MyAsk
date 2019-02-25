@@ -7,43 +7,10 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/reply.css">
 <title>MyAsk::답변</title>
-<style>
-	.replyButton {
-		font-size: 110%;
-		padding: 15px;
-		width: 100px;
-		border: none;
-		border-radius: 15px;
-		color: snow;
-		background-color: rgb(60, 60, 60);
-	}
-	
-	.replyBox {
-		margin: 0px auto;
-		text-align: center;
-		padding: 20px;
-		width: 500px;
-		border: none;
-		border-radius: 15px;
-		background-color: snow;
-	}
-	
-	.inputText {
-	 	width: 400px;
-        padding: 15px;
-        color:black;
-        font-size: 110%;
-        border: solid black 3px;
-        border-radius: 10px;
-        background-color: snow;
-        resize: none;
-     }
-</style>
 </head>
 <body style="background-color:rgb(60, 60, 60)">
 	<div id="content" style="margin-top: 50px; text-align: center">

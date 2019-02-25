@@ -18,13 +18,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
 		HttpSession session = request.getSession();
 		UserVO loginVO = (UserVO) session.getAttribute(Attr.LOGIN);
-		if (loginVO == null) {
+		
+		boolean isNotLoggedIn = loginVO == null;
+		if (isNotLoggedIn) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter pw = response.getWriter();
 			pw.write("<script>alert('로그인이 필요합니다!'); location.href='/login'</script>");
 			pw.flush();
+			
 			return false;
 		}
 

@@ -36,7 +36,6 @@ public class SignUpServiceImpl implements SignUpService {
 	public String signup(HttpSession session, HttpServletResponse response, AccountCheckDTO formRequest)
 			throws Exception {
 
-
 		String id = formRequest.getId();
 		String pw = formRequest.getPassword();
 		String pw2 = formRequest.getPassword2();
@@ -56,7 +55,7 @@ public class SignUpServiceImpl implements SignUpService {
 
 		// 가입하려는 아이디가 이미 존재하는 아이디인지 체크
 		UserVO existIdCheckVO = userMapper.selectUserUsingId(id);
-		boolean isExistId = existIdCheckVO != null ? true : false;
+		boolean isExistId = existIdCheckVO != null;
 
 		if (isExistId) {
 			pRes.setThreadAttr(session, Attr.ID_ALREADY_EXIST);

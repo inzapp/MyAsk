@@ -5,7 +5,7 @@ public abstract class Jsp {
 	public static final String MAIN = "main";
 	public static final String SIGNUP = "signup";
 	public static final String LOGIN = "login";
-	public static final String MY = "mypage";
+	public static final String MY = "my";
 	public static final String REPLY = "reply";
-	public static final String ASK = "askpage";
+	public static final String ASK = "ask";
 }

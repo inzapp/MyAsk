@@ -7,100 +7,10 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/my.css">
 <title>MyAsk::마이페이지</title>
-<style>
-	.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-	}
-
-	.roundInput {
-		border: none;
-		border-radius: 10px;
-		text-align: center;
-		font-size: 110%;
-		padding: 7px;
-		background-color: white;
-	}
-	
-	.error {
-		margin-top: 10px;
-		color: red;
-		font-size: 110%;
-	}
-	
-	.newAskBox {
-		margin: 0px auto;
-		width: 500px;
-		padding: 20px;
-		margin-top: 30px;
-		font-weight: bold;
-		font-size: 120%;
-		color: black;
-		background-color: snow;
-		border: none;
-		border-radius: 10px;
-	}
-	
-	.completedAskBox {
-		margin: 0px auto;
-		width: 500px;
-		padding: 20px;
-		margin-top: 30px;
-		font-weight: bold;
-		font-size: 120%;
-		color: black;
-		background-color: snow;
-		border: none;
-		border-radius: 10px;
-	}
-	
-	.deleteSubmit {
-		border: none;
-		background-color: snow;
-		color: crimson;
-	}
-	
-	.logout {
-		padding: 10px;
-		border: solid 3px snow;
-		border-radius: 15px;
-		background-color: rgb(60, 60, 60);
-		color: snow;
-		font-size: 130%;
-		font-weight: bold;
-	}
-	
-	.myAskLink {
-		width: 450px;
-		margin: 0px auto;
-		padding: 10px;
-		border: solid 3px snow;
-		border-radius: 50px;
-		background-color: rgb(60, 60, 60);
-		color: snow;
-		font-size:150%;
-		font-weight: bold;
-	}
-	
-	.copyButton {
-		width: 100px;
-		font-size: 80%;
-		padding: 5px;
-		border: solid 2px snow;
-		border-radius: 20px;
-		color: snow;
-		background-color: rgb(60, 60, 60);
-	}
-</style>
 <script type="text/javascript">
 	function copyToClipboard(elementId) {
 		var aux = document.createElement("input");

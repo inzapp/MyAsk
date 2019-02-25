@@ -7,83 +7,10 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/ask.css">
 <title>MyAsk::질문하기</title>
-<style>
-	.roundInput {
-		border: none;
-		border-radius: 10px;
-		text-align: center;
-		font-size: 110%;
-		padding: 7px;
-		background-color: white;
-	}
-	
-	.error {
-		margin-top: 10px;
-		color: red;
-		font-size: 110%;
-	}
-	
-	
-	.completedAskBox {
-		margin: 0px auto;
-		width: 500px;
-		padding: 20px;
-		margin-top: 30px;
-		font-weight: bold;
-		font-size: 120%;
-		color: black;
-		background-color: snow;
-		border: none;
-		border-radius: 10px;
-	}
-	
-	
-	.askButton {
-		font-size: 110%;
-		padding: 15px;
-		width: 100px;
-		border: none;
-		border-radius: 15px;
-		color: snow;
-		background-color: rgb(60, 60, 60);
-	}
-	
-	.askBox {
-		margin: 0px auto;
-		text-align: center;
-		padding: 20px;
-		width: 500px;
-		border: none;
-		border-radius: 15px;
-		background-color: snow;
-	}
-	
-	.inputText {
-	 	width: 400px;
-        padding: 15px;
-        color:black;
-        font-size: 110%;
-        border: solid black 3px;
-        border-radius: 10px;
-        background-color: snow;
-        resize: none;
-     }
-     
-     .delayAlert {
-     	margin: 0px auto;
-     	text-align: center;
-     	padding: 10px;
-     	width: 600px;
-     	color: snow;
-     	font-size: 120%;
-     	font-weight: bold;
-     }
-</style>
 </head>
 <body style="background-color:rgb(60, 60, 60)">
 	<div style="text-align: center; margin-top: 50px;">

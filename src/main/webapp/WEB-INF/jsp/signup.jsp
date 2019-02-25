@@ -7,59 +7,36 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/signup.css">
 <title>MyAsk::Sign Up</title>
-<style>
-	.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-	}
-
-	.roundInput {
-		border: none;
-		border-radius: 10px;
-		text-align: center;
-		font-size: 110%;
-		padding: 7px;
-		background-color: white;
-	}
-	
-	.comment {
-		color: snow;
-		margin-top: 3px;
-	}
-	
-	.error {
-		margin-top: 10px;
-		color: red;
-		font-size: 110%;
-	}
-	
-	.invisibleButton {
-		padding: 10px;
-		width: 100px;
-		font-size: 110%;
-		color: snow;
-		border-radius: 10px; 
-		border:solid 2px snow; 
-		background-color: rgb(60, 60, 60);
-		font-weight: bold;
-	}
-	
-	.signup {
-		color: snow;
-		text-align: center;
-		font-size: 170%;
-		font-weight: bold;
-	}
-</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+/* 	$(function(){
+		$('#signUpBt').click(function(){
+			$.ajax({
+				url: '', 
+				type: 'post',
+				data: {
+					signUpId: $('#id').val();
+				}
+			}).done(function(data) {
+				
+				var pw1 = $('#password').val();
+				var pw2 = $('#password2').val();
+				
+				if(pw1 === pw2){
+					var id = $('#id').val();
+				}
+				else{
+					alert('비밀번호가 일치하지 않습니다.');
+				}
+			}).fail(function(data){
+				
+			});
+		});
+	}); */
+</script>
 </head>
 <body style="background-color:rgb(60, 60, 60)">
 	<div class="center" style="text-align: center">
@@ -70,7 +47,7 @@
 			</div>
 			<form action="/signup" method="POST">
 				<div style="text-align: center; margin-top: 20px">
-					<input type="text" name="id" class="roundInput" size=20 placeholder="아이디">
+					<input type="text" name="id" id="id" class="roundInput" size=20 placeholder="아이디">
 					<div class="comment">
 						4 ~ 13글자 영문, 숫자 조합 가능
 					</div>
@@ -112,7 +89,7 @@
 					</div>
 				</c:if>
 				<div style="margin-top:20px">
-					<input type="submit" value="회원가입" class="invisibleButton">
+					<input type="submit" id="signUpBt" value="회원가입" class="invisibleButton">
 				</div>
 			</form>
 			<div style="margin-top: 50px; text-align:center">
